@@ -39,7 +39,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
-    io.to(roomId).emit(ACTIONS.CODE_CHANGE, { code });
+    //console.log("receiving", code);
+    socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
   });
 
   socket.on("disconnecting", () => {
