@@ -8,29 +8,41 @@ import "codemirror/addon/edit/closebrackets";
 import ACTIONS from "../Actions";
 
 const Editor = ({ socketRef, roomId, onCodeChange }) => {
-  //const editorRef = useRef(null);
+  const editorRef = useRef(null);
   useEffect(() => {
     async function init() {
-      Codemirror.fromTextArea(document.getElementById("realtimeEditor"), {
-        mode: { name: "javascript", json: true },
-        theme: "dracula",
-        autoCloseTags: true,
-        autoCloseBrackets: true,
-        lineNumbers: true,
-      });
+      editorRef.current = Codemirror.fromTextArea(
+        document.getElementById("realtimeEditor"),
+        {
+          mode: { name: "javascript", json: true },
+          theme: "dracula",
+          autoCloseTags: true,
+          autoCloseBrackets: true,
+          lineNumbers: true,
+        }
+      );
 
-      /* editorRef.current.on("change", (instance, changes) => {
+      editorRef.current.on("change", (instance, changes) => {
+        console.log("changes", changes);
         const { origin } = changes;
         const code = instance.getValue();
-        onCodeChange(code);
         if (origin !== "setValue") {
+          //console.log("working", code);
           socketRef.current.emit(ACTIONS.CODE_CHANGE, {
             roomId,
             code,
           });
         }
-      }); */
+        console.log(code);
+      });
+
+      socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
+        if (code !== null) {
+          editorRef.current.setValue(code);
+        }
+      });
     }
+
     init();
   }, []);
 
