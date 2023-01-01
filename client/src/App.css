@@ -20,7 +20,7 @@ footer {
 }
 
 footer a {
-  color: #4aee88;
+  color: orange;
 }
 
 .inputGroup {
@@ -68,7 +68,7 @@ footer a {
 
 .joinBtn:hover,
 .leaveBtn:hover {
-  background: rgba(255, 166, 0, 0.849);
+  background: rgba(255, 166, 0, 0.675);
 }
 
 .createInfo {
@@ -85,8 +85,8 @@ footer a {
 
 .createNewBtn:hover,
 footer a:hover {
-  color: #368654;
-  border-color: #368654;
+  color: rgba(255, 166, 0, 0.675);
+  border-color: rgba(255, 166, 0, 0.675);
 }
 
 .mainWrap {

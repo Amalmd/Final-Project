@@ -9,9 +9,9 @@ const io = new Server(server);
 
 const userSocketMap = {};
 
-/* function getAllConnctedClients(roomId) {
+function getAllConnectedClients(roomId) {
   //Map
-  return Array.from(io.socket.adapter.rooms.get(roomId) || []).map(
+  return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
     (socketId) => {
       return {
         socketId,
@@ -20,16 +20,23 @@ const userSocketMap = {};
     }
   );
 }
-*/
+
 io.on("connection", (socket) => {
   console.log("socket connected", socket.id);
 
-  /* socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
+  socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
     userSocketMap[socket.id] = username;
     socket.join(roomId);
-    const clients = getAllConnctedClients(roomId);
-    console.log(clients);
-  }); */
+    const clients = getAllConnectedClients(roomId);
+    //console.log(clients);
+    clients.forEach(({ socketId }) => {
+      io.to(socketId).emit(ACTIONS.JOINED, {
+        clients,
+        username,
+        socketId: socket.id,
+      });
+    });
+  });
 });
 
 const PORT = process.env.PORT || 5050;
