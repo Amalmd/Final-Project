@@ -9,7 +9,7 @@ function App() {
     <>
       <div>
         <Toaster
-          position="top-right"
+          position="top-left"
           toastOptions={{ success: { theme: { primary: "orange" } } }}
         ></Toaster>
       </div>

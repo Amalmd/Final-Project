@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   const handleInputEnter = (e) => {
-    console.log("event", e.code);
+    //console.log("event", e.code);
     if (e.code === "Enter" || e.code === "NumpadEnter") {
       joinRoom();
     }

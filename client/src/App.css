@@ -20,7 +20,7 @@ footer {
 }
 
 footer a {
-  color: orange;
+  color: #4aee88;
 }
 
 .inputGroup {
@@ -68,7 +68,7 @@ footer a {
 
 .joinBtn:hover,
 .leaveBtn:hover {
-  background: rgb(145, 95, 3);
+  background: rgba(255, 166, 0, 0.849);
 }
 
 .createInfo {
@@ -85,13 +85,13 @@ footer a {
 
 .createNewBtn:hover,
 footer a:hover {
-  color: rgb(145, 95, 3);
+  color: #368654;
+  border-color: #368654;
 }
 
 .mainWrap {
   display: grid;
   grid-template-columns: 230px 1fr;
-  height: 100vh;
 }
 
 .aside {
@@ -101,7 +101,6 @@ footer a:hover {
   display: flex;
   flex-direction: column;
 }
-
 .asideInner {
   flex: 1;
 }
@@ -119,7 +118,6 @@ footer a:hover {
   flex-direction: column;
   font-weight: bold;
 }
-
 .userName {
   margin-top: 10px;
 }
@@ -137,7 +135,6 @@ footer a:hover {
   width: 100%;
   margin-top: 20px;
 }
-
 .CodeMirror {
   min-height: calc(100vh - 20px);
   font-size: 20px;
