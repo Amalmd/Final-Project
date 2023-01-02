@@ -26,6 +26,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         //console.log("changes", changes);
         const { origin } = changes;
         const code = instance.getValue();
+        onCodeChange(code);
         if (origin !== "setValue") {
           //console.log("working", code);
           socketRef.current.emit(ACTIONS.CODE_CHANGE, {
@@ -49,6 +50,10 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         }
       });
     }
+
+    return () => {
+      socketRef.current.off(ACTIONS.CODE_CHANGE);
+    };
   }, [socketRef.current]);
 
   return <textarea id="realtimeEditor"></textarea>;
