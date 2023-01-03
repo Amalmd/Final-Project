@@ -7,7 +7,7 @@
 }
 
 .formWrapper {
-  background: #282a36;
+  background: #3d314a;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
@@ -61,7 +61,7 @@ footer a {
 
 .joinBtn,
 .leaveBtn {
-  background: orange;
+  background: #ffc300;
   width: 100px;
   margin-left: auto;
 }
@@ -77,9 +77,9 @@ footer a {
 }
 
 .createNewBtn {
-  color: orange;
+  color: #ffc300;
   text-decoration: none;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid #ffc300;
   transition: all 0.3s ease-in-out;
 }
 
@@ -95,7 +95,7 @@ footer a:hover {
 }
 
 .aside {
-  background: #1c1e29;
+  background: #1a1423;
   padding: 16px;
   color: #fff;
   display: flex;
@@ -123,7 +123,7 @@ footer a:hover {
 }
 
 .logo {
-  border-bottom: 1px solid #424242;
+  border-bottom: 1px solid #96705b;
   padding-bottom: 10px;
 }
 
